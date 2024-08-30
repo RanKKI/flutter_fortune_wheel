@@ -33,6 +33,7 @@ class _TransformedCircleSlice extends StatelessWidget {
         fillColor: style.color,
         strokeColor: style.borderColor,
         strokeWidth: style.borderWidth,
+        border: style.border,
       ),
     );
   }

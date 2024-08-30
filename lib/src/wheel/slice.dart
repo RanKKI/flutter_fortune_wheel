@@ -16,11 +16,43 @@ class _CircleSlice extends StatelessWidget {
       ..close();
   }
 
+  static Path buildArcPath(double radius, double angle) {
+    return Path()
+      ..moveTo(radius, 0)
+      ..arcTo(
+        Rect.fromCircle(
+          center: Offset(0, 0),
+          radius: radius,
+        ),
+        0,
+        angle,
+        false,
+      );
+  }
+
+  static Path buildSlicePathOnly(double radius, {
+    double offset = 0,
+  }) {
+    return Path()
+      ..moveTo(0, 0)
+      ..lineTo(radius, 0)
+      // ..arcTo(
+      //     Rect.fromCircle(
+      //       center: Offset(0, 0),
+      //       radius: radius,
+      //     ),
+      //     0,
+      //     angle,
+      //     false)
+      ..close();
+  }
+
   final double radius;
   final double angle;
   final Color fillColor;
   final Color strokeColor;
   final double strokeWidth;
+  final BoxBorder? border;
 
   const _CircleSlice({
     Key? key,
@@ -28,6 +60,7 @@ class _CircleSlice extends StatelessWidget {
     required this.fillColor,
     required this.strokeColor,
     this.strokeWidth = 1,
+    this.border,
     required this.angle,
   })  : assert(radius > 0),
         super(key: key);
@@ -43,6 +76,7 @@ class _CircleSlice extends StatelessWidget {
           fillColor: fillColor,
           strokeColor: strokeColor,
           strokeWidth: strokeWidth,
+          border: border,
         ),
       ),
     );

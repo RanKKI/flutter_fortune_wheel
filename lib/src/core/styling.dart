@@ -15,6 +15,13 @@ class FortuneItemStyle {
   /// The border width of a [FortuneItem].
   final double borderWidth;
 
+  /// The border of a [FortuneItem].
+  ///
+  /// if provided, [borderColor] and [borderWidth] will be ignored
+  ///
+  /// For [FortuneWheel], [Border.left] is ignored
+  final Border? border;
+
   /// The alignment of text within a [FortuneItem]
   final TextAlign textAlign;
 
@@ -27,6 +34,7 @@ class FortuneItemStyle {
     this.borderWidth = 1.0,
     this.textAlign = TextAlign.start,
     this.textStyle = const TextStyle(),
+    this.border,
   });
 
   /// Creates an opinionated disabled style based on the current [ThemeData].
